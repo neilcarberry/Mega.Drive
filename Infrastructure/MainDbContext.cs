@@ -34,8 +34,8 @@
 
         public void Rollback()
         {
-            _transaction.Rollback();
-            _transaction.Dispose();
+            //_transaction.Rollback();
+            //_transaction.Dispose();
         }
     }
 }

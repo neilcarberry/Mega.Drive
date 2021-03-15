@@ -24,10 +24,7 @@
 
         public RuntimeCache()
         {
-            Cache = new MemoryCache(new MemoryCacheOptions
-            {
-                SizeLimit = 1024
-            }); 
+            Cache = new MemoryCache(new MemoryCacheOptions()); 
             //_dataCacheTime = ConfigSettingsRepository.GetSettingValue("DataCacheTime", 0, false);
         }
 
