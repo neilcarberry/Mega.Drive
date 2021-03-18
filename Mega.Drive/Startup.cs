@@ -60,7 +60,9 @@ namespace Mega.Drive
 
             builder.RegisterGeneric(typeof(EventBusPublisher<>)).As(typeof(INotificationHandler<>));
             builder.RegisterAutoMapper(typeof(Domain.AutoMapper.AutoMapperProfile).GetTypeInfo().Assembly);
+
             builder.RegisterType(typeof(RuntimeCache)).As<ICache>().SingleInstance(); 
+
             builder.RegisterAggregateService<ICoreAggregator>();
         }
 

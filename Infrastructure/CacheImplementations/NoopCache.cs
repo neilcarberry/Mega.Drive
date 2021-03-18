@@ -1,4 +1,6 @@
-﻿namespace Infrastructure.CacheImplementations
+﻿using System;
+
+namespace Infrastructure.CacheImplementations
 {
     #region Usings
 
@@ -10,7 +12,7 @@
     {
         #region Interface Implementations
 
-        public void Add<T>(string key, T objectToCache)
+        public void Add<T>(string key, T objectToCache, TimeSpan cachetime)
         {
         }
 

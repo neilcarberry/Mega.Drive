@@ -50,7 +50,7 @@ namespace Application.Abstractions
                 
                 if(result!=null)
                 {
-                    Cache.Add(request.CacheKey, result);
+                    Cache.Add(request.CacheKey, result, request.CacheTime);
                 }
 
                 DbContext.Commit();
@@ -59,7 +59,7 @@ namespace Application.Abstractions
             catch (BaseHttpException bex)
             {
                 DbContext.Rollback();
-                throw bex;
+                throw new Exception($"Error in {typeof(TRequest)}", bex );
             }
             catch (Exception ex)
             {

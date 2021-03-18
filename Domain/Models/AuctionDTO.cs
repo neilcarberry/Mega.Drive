@@ -1,9 +1,8 @@
-﻿using AutoMapper;
-using Domain.AutoMapper;
-using Infrastructure.Entities;
-
-namespace Domain.Models
+﻿namespace Domain.Models
 {
+    using AutoMapper;
+    using Infrastructure.Entities;
+
     public class AuctionDTO : IMap<Auction>
     {
         public int Id { get; set; }

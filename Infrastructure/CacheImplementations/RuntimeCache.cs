@@ -1,4 +1,6 @@
-﻿namespace Infrastructure.CacheImplementations
+﻿using Polly.Timeout;
+
+namespace Infrastructure.CacheImplementations
 {
     #region Usings
 
@@ -39,9 +41,9 @@
         /// <param name="key">The key to look up the object later</param>
         /// <param name="objectToCache">The object to add to the cache</param>
         /// <param name="serializerSettings">Optional json serializer settings</param>
-        public void Add<T>(string key, T objectToCache)
+        public void Add<T>(string key, T objectToCache, TimeSpan cacheTime)
         {
-            Cache.Set(key, objectToCache);
+            Cache.Set(key, objectToCache, cacheTime);
         }
 
         /// <summary>
@@ -53,11 +55,11 @@
         /// <returns>An object of the specified type</returns>
         public T Get<T>(string key)
         {
-            var cacheObject = Cache.Get(key);
+            var cacheObject = Cache.Get<T>(key);
 
             if (cacheObject != null)
             {
-                return JsonSerializer.Deserialize<T>(cacheObject.ToString());
+                return cacheObject;
             }
 
             return default(T);

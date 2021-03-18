@@ -37,7 +37,7 @@
         /// <param name="key">The key to look up the object later</param>
         /// <param name="objectToCache">The object to add to the cache</param>
         /// <param name="serializerSettings">Optional json serializer settings</param>
-        public void Add<T>(string key, T objectToCache)
+        public void Add<T>(string key, T objectToCache, TimeSpan cachetime)
         {
             //try
             //{

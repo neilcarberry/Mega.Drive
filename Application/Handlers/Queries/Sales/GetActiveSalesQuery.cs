@@ -1,4 +1,5 @@
-﻿using Application.Abstractions;
+﻿using System;
+using Application.Abstractions;
 using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,6 @@ namespace Application.Handlers.Queries
         [FromRoute]
         public string Culture { get; set; }
 
-        public override string CacheKey { get; set; } = "GetActiveSales";
+        public override string CacheKey { get { return "GetActiveSales"; } }
     }
 }

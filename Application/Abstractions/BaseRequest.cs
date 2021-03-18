@@ -11,6 +11,9 @@ namespace Application.Abstractions
     public abstract class BaseRequest<TResponse> : IRequest<TResponse>
     {
         [JsonIgnore]
-        public abstract string CacheKey { get; set; }
+        public abstract string CacheKey { get; }
+
+        [JsonIgnore]
+        public virtual TimeSpan CacheTime { get; set; } = new (0, 30, 0);
     }
 }

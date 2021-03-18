@@ -1,4 +1,6 @@
-﻿namespace Infrastructure.CacheInterfaces
+﻿using System;
+
+namespace Infrastructure.CacheInterfaces
 {
     public interface ICache
     {
@@ -10,7 +12,8 @@
         /// <typeparam name="T">The generic type</typeparam>
         /// <param name="key">The key to look up the object later</param>
         /// <param name="objectToCache">The object to add to the cache</param>
-        void Add<T>(string key, T objectToCache);
+        /// <param name="cacheTime">How long to cache the item for</param>
+        void Add<T>(string key, T objectToCache, TimeSpan cacheTime);
 
         /// <summary>
         /// Gets an item from the cache with the specified key
